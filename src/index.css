@@ -1,0 +1,31 @@
+@import "tailwindcss";
+@import url('https://fonts.googleapis.com/css2?family=Orbitron:wght@400;700&family=Rajdhani:wght@500;700&display=swap');
+
+@theme {
+  --font-orbitron: "Orbitron", sans-serif;
+  --font-rajdhani: "Rajdhani", sans-serif;
+  
+  --color-primary: #ff003c;
+  --color-bg-dark: #050505;
+  --color-card-dark: #111111;
+}
+
+@layer base {
+  body {
+    @apply font-rajdhani bg-bg-dark text-white overflow-x-hidden;
+  }
+  
+  h1, h2, h3, h4 {
+    @apply font-orbitron uppercase tracking-wider;
+  }
+}
+
+@layer utilities {
+  .text-glow {
+    text-shadow: 0 0 15px var(--color-primary);
+  }
+  
+  .box-glow {
+    box-shadow: 0 0 25px var(--color-primary);
+  }
+}
