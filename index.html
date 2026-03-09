@@ -1,28 +1,176 @@
-<!doctype html>
+<!DOCTYPE html>
 <html lang="en">
-  <head>
-    <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>FAMCORE ESPORTS | Play as Family, Win as Legends</title>
-    <meta name="description" content="Official website of FAMCORE ESPORTS. Meet our Free Fire warriors: FAM MARUF, FAM HUNTER, FAM RABBI, and FAM ABIR." />
-    <meta name="keywords" content="FAMCORE, ESPORTS, Free Fire, Gaming, FAM MARUF, FAM HUNTER, FAM RABBI, FAM ABIR" />
-    <meta name="author" content="Junayet Hossen" />
-    
-    <!-- Open Graph / Facebook -->
-    <meta property="og:type" content="website" />
-    <meta property="og:title" content="FAMCORE ESPORTS | Play as Family, Win as Legends" />
-    <meta property="og:description" content="Official website of FAMCORE ESPORTS. Meet the squad and our story." />
-    <meta property="og:image" content="https://i.ibb.co.com/7dv2zJ7s/IMG-20260309-152837.jpg" />
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>FAMCORE | Play as Family, Win as Legends</title>
+    <link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@400;700&family=Rajdhani:wght@500;700&display=swap" rel="stylesheet">
+    <style>
+        :root {
+            --primary: #ff003c; /* Neon Red */
+            --bg: #050505;
+            --card-bg: #111111;
+            --text: #ffffff;
+        }
 
-    <!-- Twitter -->
-    <meta property="twitter:card" content="summary_large_image" />
-    <meta property="twitter:title" content="FAMCORE ESPORTS | Play as Family, Win as Legends" />
-    <meta property="twitter:description" content="Official website of FAMCORE ESPORTS. Meet the squad and our story." />
-    <meta property="twitter:image" content="https://i.ibb.co.com/7dv2zJ7s/IMG-20260309-152837.jpg" />
-  </head>
-  <body>
-    <div id="root"></div>
-    <script type="module" src="/src/main.tsx"></script>
-  </body>
+        * { margin: 0; padding: 0; box-sizing: border-box; scroll-behavior: smooth; }
+
+        body {
+            font-family: 'Rajdhani', sans-serif;
+            background-color: var(--bg);
+            color: var(--text);
+            overflow-x: hidden;
+        }
+
+        h1, h2, h3 { font-family: 'Orbitron', sans-serif; text-transform: uppercase; }
+
+        /* Hero Section */
+        .hero {
+            height: 100vh;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            text-align: center;
+            /* Using a dark gradient as hero background */
+            background: linear-gradient(rgba(0,0,0,0.8), rgba(0,0,0,0.9)), 
+                        radial-gradient(circle, rgba(255,0,60,0.2) 0%, rgba(0,0,0,1) 70%);
+            padding: 20px;
+        }
+
+        .main-logo {
+            width: 140px;
+            height: 140px;
+            border-radius: 50%;
+            border: 3px solid var(--primary);
+            box-shadow: 0 0 25px var(--primary);
+            margin-bottom: 25px;
+            object-fit: cover;
+        }
+
+        .hero h1 { font-size: 3.5rem; margin-bottom: 10px; letter-spacing: 5px; text-shadow: 0 0 15px var(--primary); }
+        .hero p { font-size: 1.2rem; color: var(--primary); font-weight: bold; letter-spacing: 2px; margin-bottom: 30px; }
+
+        /* About Section */
+        .about { padding: 80px 20px; text-align: center; background: #0a0a0a; border-top: 1px solid #222; }
+        .about h2 { margin-bottom: 20px; color: var(--primary); }
+        .about p { max-width: 700px; margin: 0 auto; color: #ccc; font-size: 1.1rem; line-height: 1.8; }
+
+        /* Roster Section */
+        .roster { padding: 80px 20px; text-align: center; }
+        .roster h2 { margin-bottom: 50px; font-size: 2rem; }
+        .grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+            gap: 30px;
+            max-width: 1100px;
+            margin: 0 auto;
+        }
+
+        .card {
+            background: var(--card-bg);
+            border-radius: 15px;
+            overflow: hidden;
+            border: 1px solid #222;
+            transition: 0.4s;
+        }
+
+        .card:hover { border-color: var(--primary); transform: translateY(-10px); box-shadow: 0 10px 30px rgba(255, 0, 60, 0.2); }
+
+        .player-img {
+            width: 100%;
+            height: 320px;
+            object-fit: cover;
+            border-bottom: 3px solid var(--primary);
+        }
+
+        .card-info { padding: 20px; }
+        .card h3 { font-size: 1.5rem; margin-bottom: 5px; color: #fff; }
+        .card span { color: var(--primary); font-size: 0.9rem; font-weight: bold; text-transform: uppercase; letter-spacing: 1px; }
+
+        /* Footer */
+        footer { padding: 50px 20px; background: #000; text-align: center; border-top: 2px solid var(--primary); }
+        .contact-info { margin-bottom: 15px; color: #888; font-size: 1.1rem; }
+        
+        .btn {
+            display: inline-block;
+            padding: 12px 35px;
+            background: var(--primary);
+            color: white;
+            text-decoration: none;
+            border-radius: 5px;
+            font-weight: bold;
+            transition: 0.3s;
+            margin-top: 10px;
+        }
+        .btn:hover { background: white; color: var(--primary); box-shadow: 0 0 15px white; }
+
+        @media (max-width: 600px) {
+            .hero h1 { font-size: 2.5rem; }
+            .player-img { height: 280px; }
+        }
+    </style>
+</head>
+<body>
+
+    <section class="hero">
+        <img src="https://i.ibb.co.com/7dv2zJ7s/IMG-20260309-152837.jpg" alt="FAMCORE Logo" class="main-logo">
+        <h1>FAMCORE</h1>
+        <p>Play as Family, Win as Legends</p>
+        <a href="#roster" class="btn">MEET THE WARRIORS</a>
+    </section>
+
+    <section class="about">
+        <h2>Our Story</h2>
+        <p>FAMCORE প্রতিষ্ঠিত হয়েছে ২৫ ডিসেম্বর, ২০২৫ সালে। এটি শুধু একটি ফ্রি ফায়ার টিম নয়, এটি একটি পরিবার। আমাদের লক্ষ্য ময়দানে আমাদের দক্ষতা প্রদর্শন করা এবং কিংবদন্তি হিসেবে নিজেদের প্রতিষ্ঠিত করা। আমাদের প্রতিটি মেম্বার একতা আর সাহসের সাথে লড়াই করতে প্রস্তুত।</p>
+    </section>
+
+    <section id="roster" class="roster">
+        <h2>The Squad</h2>
+        <div class="grid">
+            <div class="card">
+                <img src="https://i.ibb.co.com/Y79MnJ47/IMG-20260309-155845.jpg" alt="FAM MARUF" class="player-img">
+                <div class="card-info">
+                    <h3>FAM MARUF</h3>
+                    <span>IGL + Sniper 🎯</span>
+                </div>
+            </div>
+
+            <div class="card">
+                <img src="https://i.ibb.co.com/LzdLZTM9/IMG-20260309-155823.jpg" alt="FAM HUNTER" class="player-img">
+                <div class="card-info">
+                    <h3>FAM HUNTER</h3>
+                    <span>1st Rusher 🔥</span>
+                </div>
+            </div>
+
+            <div class="card">
+                <img src="https://i.ibb.co.com/LDPwyGG5/IMG-20260309-155905.jpg" alt="FAM RABBI" class="player-img">
+                <div class="card-info">
+                    <h3>FAM RABBI</h3>
+                    <span>Supporter + Bomber 💣</span>
+                </div>
+            </div>
+
+            <div class="card">
+                <img src="https://i.ibb.co.com/XfHbJKdh/IMG-20260309-155754.jpg" alt="FAM ABIR" class="player-img">
+                <div class="card-info">
+                    <h3>FAM ABIR</h3>
+                    <span>2nd Rusher ⚡</span>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <footer>
+        <h2>Connect With Us</h2>
+        <p class="contact-info">Official Email: md0824299@gmail.com</p>
+        <div style="margin-bottom: 20px;">
+            <a href="#" style="color:white; text-decoration:none; margin: 0 10px;">Facebook</a> | 
+            <a href="#" style="color:white; text-decoration:none; margin: 0 10px;">YouTube</a>
+        </div>
+        <p style="font-size: 0.8rem; color: #444; letter-spacing: 1px;">&copy; 2026 FAMCORE ESPORTS | ALL RIGHTS RESERVED</p>
+    </footer>
+
+</body>
 </html>
-
